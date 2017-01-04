@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="example"></div>
+<script src="react.js"></script>
+<script src="react-dom.js"></script>
+<script src="babel.min.js"></script>
+<script type="text/babel">
+    class MyTitle extends React.Component {
+        //constructor 是组件的构造函数，会在创建实例时自动调用。...args表示组件参数，super(...args)是ES6规定写法，this.state对象用来存放内部状态
+        constructor(...args) {
+            super(...args);
+            this.state = {
+                name:"访问者"
+            };
+        }
+        handleChange(e) {
+            let name = e.target.value;
+            //this.setState() 方法用来重置this.state,每次调用这个方法，就会引发组件的重新渲染
+            this.setState({
+                name: name
+            })
+        }
+        render(){
+            return <div><input type="text" onChange={this.handleChange.bind(this)}/>
+            <p>你好，{this.state.name}</p>
+            </div>;
+        }
+    };
+    ReactDOM.render(
+            <MyTitle/>,
+            document.getElementById('example')
+    )
+</script>
+</body>
+</html>
