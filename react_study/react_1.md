@@ -72,6 +72,23 @@
         );
 ```
 ### 组件的状态
-- 组件往往会有内部状态，使用this.state表示
+- 组件往往会有内部状态，使用this.state表示 this.setState()改变状态
+### 组件的生命周期
+- React为组件的不同生命阶段，提供了近十个钩子方法。
+  - componentWillMount():组件加载前调用
+  - componentDidMount():组件加载后调用
+  - componentWillUpdate():组件更新前调用
+  - componentDidUpdate():组件更新后调用
+  - componentWillUnmount():组件卸载前调用
+  - componentWillReceiveProps():组件接受新的参数时调用
+- 组件可以通过Ajax请求从服务器获取数据，Ajax请求一般在componentDidMount方法
+```
+    componentDidMount(){
+        const url = '...';
+        $.getJSON(url)
+            .done()
+            .fail();
+    }
+```
 
 
