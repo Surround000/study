@@ -41,10 +41,17 @@
             }else if(this.state.error !== null){
                 return <span>Error:{this.state.error}</span>;
             }else{
+                var projects = this.state.data.items;
+                var result = [];
+                projects.forEach((p,q) =>{
+                    var item = <li>{p.name}</li>;
+                    result.push(item);
+                })
+                console.log(this.state.data.items)
                 return (
-                    //var projects = this.state.data.items;
-                    console.log(this.state.data.items)
-                    <p></p>
+                        <div>
+                            <ul>{result}</ul>
+                        </div>
                 )
             }
         }
