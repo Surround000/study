@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    var obj1 = {age:1,greade:{a:'ww',ss:['a',3,4],obj:{a:1,c:0}},bb:[1,3,4,5],cc:'dd'}
+    function deepCopy(preObj){
+        var newObj = {};
+        for(var key in preObj){
+            if(preObj[key] instanceof Array){
+                newObj[key] = preObj[key].slice();
+            }else if(preObj[key] instanceof Object){
+                newObj[key] = deepCopy(preObj[key]);
+            }else{
+                newObj[key] = preObj[key];
+            }
+        }
+        return newObj;
+    }
+    console.log(obj1,deepCopy(obj1))
+</script>
+</body>
+</html>
